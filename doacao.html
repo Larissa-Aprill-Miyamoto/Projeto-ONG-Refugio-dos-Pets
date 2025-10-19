@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doação | ONG Refúgio dos Pets</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Cadastro de Voluntários</h1>
+    <p>Preencha o formulário abaixo e faça parte dessa causa.</p>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html" class="active">Cadastro</a></li>
+        <li><a href="doacao.html" class="active">Doação</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+   <p style="text-align: center; margin: 40px auto 20px;">Se você não tem tanto tempo livre, mas mesmo assim quer ajudar o Refúgio dos Pets, pode fazer uma doação!</p>
+
+<section id="doacao" class="doacao">
+    <h2>Faça uma doação:</h2>
+    <p>Escolha o valor e o método de pagamento que preferir:</p>
+    <form id="formDoacao">
+        
+        <label for="valor">Valor (R$):</label>
+        <input type="number" id="valor" name="valor" min="5" step="0.01" required placeholder="Ex: 20.00">
+        
+        <label for="metodo">Método de pagamento:</label>
+        <select id="metodo" name="metodo" required>
+            <option value="">Selecione...</option>
+            <option value="pix">PIX</option>
+            <option value="cartao">Cartão de crédito</option>
+            <option value="paypal">PayPal</option>
+        </select>
+        
+        <button type="submit">Doar</button>
+    </form>
+    <p id="doacaoMensagem" style="margin-top:10px;font-weight:bold;color:green;"></p> 
+</section>
+
+<script>
+document.getElementById('formDoacao').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const valor = document.getElementById('valor').value;
+    const metodo = document.getElementById('metodo').value;
+    
+    const msg = document.getElementById('doacaoMensagem'); 
+
+    if (!valor || !metodo) {
+        msg.style.color = 'red';
+        msg.textContent = 'Por favor, preencha todos os campos.';
+        return;
+    }
+    
+    msg.style.color = 'green';
+    msg.textContent = `Obrigado pela sua doação de R$ ${parseFloat(valor).toFixed(2)} via ${metodo.toUpperCase()}!`; 
+    
+    this.reset();
+});
+</script>
+
+ <section class="contato">
+      <img src="assets/img/pexels-lora-rikky-247863707-20693613.jpg" alt="Pets felizes">
+      <p>Muito obrigado(a) pela sua generosa doação! Seu apoio faz uma grande diferença.</p>
+    </section>
+
+ </main>
+  <footer>
+    <section class="footer-content">
+      <h2>ONG Refúgio dos Pets</h2>
+      <p><strong>Telefone:</strong> (xx) XXXXX-XXXX</p>
+      <p><strong>Email:</strong> <a href="mailto:ong@refugiodospets.org">ong@refugiodospets.org</a></p>
+      <p>&copy; 2025 Refúgio dos Pets. Todos os direitos reservados.</p>
+    </section>
+  </footer>
+
+</body>
+</html>

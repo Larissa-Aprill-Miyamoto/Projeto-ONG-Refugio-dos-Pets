@@ -1,0 +1,457 @@
+:root {
+    /* 🎨 Paleta de cores (8 cores) */
+    --verde-claro: #C7FFED;
+    --verde-medio: #008F8C;
+    --verde-escuro: #015958;
+    --verde-destaque: #2f7574;
+    --azul-profundo: #023535;
+    --cinza-claro: #f3f5f8;
+    --cinza-medio: #ccc;
+    --branco: #ffffff;
+
+    /* 🔤 Tipografia hierárquica */
+    --fonte-base: 'Arial', sans-serif;
+    --fs-xs: 0.75rem; /* 12px */
+    --fs-sm: 0.875rem; /* 14px */
+    --fs-md: 1rem; /* 16px */
+    --fs-lg: 1.25rem; /* 20px */
+    --fs-xl: 1.75rem; /* 28px */
+    --fs-xxl: 2.5rem; /* 40px */
+
+    /* 📏 Espaçamento modular */
+    --sp-1: 8px;
+    --sp-2: 16px;
+    --sp-3: 24px;
+    --sp-4: 32px;
+    --sp-5: 48px;
+    --sp-6: 64px;
+
+    /* Layout */
+    --max-container: 1200px;
+    --transition: all 0.3s ease;
+}
+
+/* =========================================================
+    🔤 ESTILOS GERAIS
+    ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--verde-claro);
+    color: var(--azul-profundo);
+    font-family: var(--fonte-base);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+    🧭 CABEÇALHO E MENU RESPONSIVO
+    ========================================================= */
+
+header {
+    background-color: var(--verde-medio);
+    text-align: center;
+    padding: var(--sp-3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header h1 {
+    color: var(--branco);
+    font-size: var(--fs-xxl);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header h2 {
+    color: var(--azul-profundo);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+}
+
+/* ===== MENU PRINCIPAL ===== */
+nav {
+    background-color: var(--verde-escuro);
+    padding: var(--sp-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--sp-3);
+}
+
+nav a {
+    color: var(--branco);
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--verde-destaque);
+}
+
+/* ===== MENU HAMBÚRGUER (mantido por compatibilidade) ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: var(--sp-3);
+    top: var(--sp-3);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background-color: var(--branco);
+    border-radius: 3px;
+}
+
+/* =========================================================
+    🧱 LAYOUT PRINCIPAL
+    ========================================================= */
+main {
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--sp-4);
+    /* Removendo o display: grid para o main e colocando nas seções
+       Ou garantindo que as seções usem o grid corretamente */
+}
+
+/* Seções principais para usar toda a largura do main */
+.intro, .projetos, .contato, .doacao {
+    margin-bottom: var(--sp-5);
+    padding: var(--sp-3);
+    background-color: var(--branco); /* Fundo branco para as seções */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+/* Imagens e vídeos - AJUSTE PRINCIPAL AQUI */
+img, video {
+    display: block;
+    width: 100%; /* Ocupa 100% do seu contêiner pai */
+    margin: 0; /* Remove margem desnecessária */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    height: auto;
+}
+
+/* Seção de Introdução */
+/* Seção de Introdução - MODIFICADA */
+.intro {
+    /* Removendo display: grid e grid-template-columns: 1fr 1fr */
+    display: flex; /* Usaremos flexbox para centralizar */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: justify; /* Centraliza o texto */
+    gap: var(--sp-4); /* Espaçamento entre os elementos */
+    padding: var(--sp-4);
+    /* Mantém as outras propriedades existentes */
+    background-color: var(--branco); /* Fundo branco para a seção */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: var(--sp-5); /* Para alinhar com outras seções */
+}
+
+/* Remover ou comentar esta regra se não for mais ter divs internas em .intro */
+/* .intro > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+} */
+
+/* Ajuste para a imagem dentro de .intro */
+.intro img {
+    margin: var(--sp-3) auto; /* Adiciona margem superior/inferior e centraliza a imagem */
+    max-width: 800px; /* Limita a largura máxima da imagem para não esticar demais */
+    width: 100%; /* Garante que ela seja responsiva */
+}
+
+/* Ajuste para os parágrafos dentro de .intro */
+.intro p {
+    max-width: 800px; /* Limita a largura do texto para melhor leitura */
+    margin: 0 auto; /* Centraliza o bloco de texto */
+    padding: 0 var(--sp-3); /* Adiciona padding lateral para não colar nas bordas */
+}
+
+/* Seção Projetos */
+.projetos h2 {
+    text-align: center;
+    color: var(--verde-escuro);
+    margin-bottom: var(--sp-4);
+    font-size: var(--fs-xl);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo para os cartões */
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+}
+
+.card {
+    background-color: var(--cinza-claro);
+    padding: var(--sp-3);
+    border-radius: 8px;
+    border-left: 5px solid var(--verde-destaque);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    color: var(--verde-escuro);
+    margin-bottom: var(--sp-2);
+    font-size: var(--fs-lg);
+}
+
+.link-projetos {
+    text-align: center;
+    margin-top: var(--sp-4);
+}
+
+/* Seção Contato */
+.contato {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    background-color: var(--verde-medio);
+    color: var(--branco);
+    padding: var(--sp-5);
+}
+
+.contato img {
+    flex-shrink: 0; /* Impede a imagem de encolher */
+    width: 200px; /* Largura fixa para a imagem no desktop */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagem redonda */
+    border: 4px solid var(--branco);
+}
+
+.contato p {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+}
+
+
+/* =========================================================
+    🧾 FORMULÁRIOS
+    ========================================================= */
+
+form {
+    /* Removendo 'grid-column: span 12;' se o form estiver dentro de uma section que já ocupa a largura total */
+    background: var(--branco);
+    padding: var(--sp-4);
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+}
+
+fieldset {
+    border: 1px solid var(--cinza-medio);
+    border-radius: 8px;
+    padding: var(--sp-3);
+    /* Adicione uma margem inferior para separar do botão */
+    margin-bottom: var(--sp-3); 
+}
+
+legend {
+    font-size: var(--fs-lg);
+    color: var(--verde-escuro);
+    font-weight: bold;
+    /* Adicione estas propriedades para corrigir a sobreposição da borda: */
+    display: table;
+    background: var(--branco); 
+    padding: 0 var(--sp-2);
+    margin-left: var(--sp-1);
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    margin-top: var(--sp-2); /* Adiciona espaço acima do label */
+}
+
+input, select, button {
+    width: 100%;
+    padding: var(--sp-2);
+    border-radius: 6px;
+    border: 1px solid var(--cinza-medio);
+    font-size: var(--fs-md);
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--verde-medio);
+    box-shadow: 0 0 5px var(--verde-medio);
+}
+
+/* Botões */
+button[type="submit"] { /* Especificando para botões de submit */
+    background-color: var(--verde-destaque);
+    color: var(--branco);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--verde-escuro);
+}
+
+
+/* =========================================================
+    🧭 FOOTER
+    ========================================================= */
+footer {
+    background-color: var(--verde-medio);
+    color: var(--branco);
+    text-align: center;
+    padding: var(--sp-3);
+    margin-top: var(--sp-5);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer a {
+    color: var(--branco);
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: var(--verde-claro);
+}
+
+/* =========================================================
+    📱 RESPONSIVIDADE
+    ========================================================= */
+@media (max-width: 992px) {
+    .intro {
+        grid-template-columns: 1fr; /* 1 coluna em telas menores */
+    }
+
+    .contato {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... (Mantenha suas regras de responsividade para menu e outros) ... */
+}
+/* ... (Seu restante do CSS de responsividade) ... */
+
+/* =========================================================
+    📐 ESTILOS ESPECÍFICOS DA PÁGINA DE PROJETOS
+    ========================================================= */
+
+/* Garante que a seção de projetos detalhados use a largura total */
+.projetos-detalhados {
+    background-color: var(--branco);
+    padding: var(--sp-4);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--sp-5);
+}
+
+.projetos-detalhados h2 {
+    text-align: center;
+    color: var(--verde-escuro);
+    margin-bottom: var(--sp-4);
+    font-size: var(--fs-xl);
+}
+
+/* Modificação para os cartões da página projetos (com imagem) */
+.projetos-detalhados .card {
+    background-color: var(--cinza-claro);
+    padding: var(--sp-2); /* Menos padding se a imagem estiver em cima */
+    border-radius: 8px;
+    border: 1px solid var(--cinza-medio); /* Borda mais sutil */
+    border-left: none; /* Remove a borda lateral */
+    overflow: hidden; /* Garante que a imagem siga o border-radius no topo */
+}
+
+.projetos-detalhados .card img {
+    /* Ajusta a imagem para ocupar o topo do cartão */
+    width: 100%;
+    height: 200px; /* Altura fixa para manter o alinhamento visual */
+    object-fit: cover;
+    border-radius: 6px 6px 0 0; /* Arredonda só o topo */
+    margin: 0 0 var(--sp-2) 0;
+    box-shadow: none; /* Remove sombra da imagem individual */
+}
+
+.projetos-detalhados .card h3 {
+    padding: 0 var(--sp-2);
+}
+
+.projetos-detalhados .card p {
+    padding: 0 var(--sp-2) var(--sp-2) var(--sp-2);
+    font-size: var(--fs-sm);
+}
+
+/* Garante que o card-grid use o grid de forma responsiva (reutilizando a regra anterior) */
+.projetos-detalhados .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--sp-4);
+}
+
+
+/* =========================================================
+    📢 SEÇÃO DE CHAMADA PARA AÇÃO (CTA)
+    ========================================================= */
+.cta {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: var(--sp-5);
+    border-radius: 12px;
+    margin-bottom: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.cta h2 {
+    color: var(--branco);
+    font-size: var(--fs-xl);
+}
+
+.cta p {
+    font-size: var(--fs-lg);
+    max-width: 600px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: var(--verde-destaque);
+    color: var(--branco);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--fs-md);
+    transition: var(--transition);
+}
+
+.botao:hover {
+    background-color: var(--verde-medio);
+    transform: translateY(-2px);
+}
